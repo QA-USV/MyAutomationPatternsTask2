@@ -1,1 +1,1 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/tmq6k9segp0ypa36?svg=true)](https://ci.appveyor.com/project/QA-USV/myautomationpatternstasktwo)
+https://ci.appveyor.com/project/QA-USV/myautomationpatternstasktwo/settings/badges#:~:text=%5B!%5BBuild%20status%5D(https%3A//ci.appveyor.com/api/projects/status/tmq6k9segp0ypa36%3Fsvg%3Dtrue)%5D(https%3A//ci.appveyor.com/project/QA%2DUSV/myautomationpatternstasktwo)

@@ -5,14 +5,12 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import jdk.jfr.ContentType;
 import lombok.Value;
-import lombok.val;
+
 
 import java.util.Locale;
 
-import static ru.netology.mytasktwo.DataGenerator.getRandomLogin;
-import static ru.netology.mytasktwo.DataGenerator.getRandomPassword;
+import static io.restassured.RestAssured.given;
 
 public class DataGenerator {
 
@@ -31,11 +29,11 @@ public class DataGenerator {
     private static void sendRequest(RegistrationDto user) {
         given()
                 .spec(requestSpec)
-                .body(new RegistrationDto("vasya", "password", "active")) // передаём в теле объект, который будет преобразован в JSON
-                .when() // "когда"
-                .post("/api/system/users") // на какой путь относительно BaseUri отправляем запрос
-                .then() // "тогда ожидаем"
-                .statusCode(200); // код 200 OK
+                .body(user)
+                .when()
+                .post("/api/system/users")
+                .then()
+                .statusCode(200);
     }
 
     public static String getRandomLogin() {
@@ -43,7 +41,7 @@ public class DataGenerator {
     }
 
     public static String getRandomPassword() {
-        return faker.internet().password(6, 10, true, false, true);
+        return faker.internet().password(6, 10);
     }
 
     public static class Registration {
@@ -51,7 +49,7 @@ public class DataGenerator {
         }
 
         public static RegistrationDto getUser(String status) {
-            return RegistrationDto(getRandomLogin(), getRandomPassword(), status;
+            return new RegistrationDto(getRandomLogin(), getRandomPassword(), status);
         }
 
         public static RegistrationDto getRegisteredUser(String status) {

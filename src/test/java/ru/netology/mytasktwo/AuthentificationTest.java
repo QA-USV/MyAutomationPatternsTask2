@@ -12,7 +12,6 @@ import static ru.netology.mytasktwo.DataGenerator.Registration.getUser;
 import static ru.netology.mytasktwo.DataGenerator.getRandomLogin;
 import static ru.netology.mytasktwo.DataGenerator.getRandomPassword;
 
-
 public class AuthentificationTest {
 
     @BeforeEach
